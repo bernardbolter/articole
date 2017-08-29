@@ -32,12 +32,6 @@ module.exports = {
     new ExtractTextPlugin({ filename: 'style.css', allChunks: true }),
     new HtmlWebpackPLugin({
       template: 'src/index.html'
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin()
+    })
   ]
 };
