@@ -3,17 +3,39 @@
   background: $blue
   display: flex
   flex-direction: row
-  justify-content: space-between
+  justify-content: space-around
   align-items: center
-  padding: 10px 4%
+  padding: 15px 4%
   position: fixed
   z-index: 3
   top: 0
 
+  @media (min-width: $desktop-break)
+    justify-content: flex-start
+    width: 100%
+    padding: 15px 0
+
+  @media (min-width: $max-width)
+    width: $max-width
+    padding: 15px 0
+    margin-left: calc((100% - $max-width) / 2)
+    margin-right: calc((100% - $max-width) / 2)
+
+
   a
     font-family: $head-font
-    size: 12px
+    font-size: 14px
     font-weight: 400
     color: $gold
     text-decoration: none
     cursor: pointer
+
+    @media (min-width: 400px)
+      font-size: 15px
+
+    @media (min-width: 500px)
+      font-size: 17px
+
+    @media (min-width: $desktop-break)
+      font-size: 18px
+      margin-left: 40px

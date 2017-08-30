@@ -1,7 +1,29 @@
+.rsvp-break
+  display: flex
+  flex-direction: column
+  background: #fff
+
+  @media (min-width: $desktop-break)
+    flex-direction: row
+
 .rsvp
   width: 100%
-  height: 300px
   display: flex
   flex-direction: column
   justify-content: space-around
   align-items: center
+
+  @media (min-width: $desktop-break)
+    width: 50%
+
+  h1
+    color: $gold
+    font-family: $head-font
+    font-size: 40px
+    font-weight: 200
+    padding: 50px 0 15px
+    margin: 0 0 5px
+    text-align: center
+
+.rsvp-form
+  width: 80%
