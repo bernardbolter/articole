@@ -25,7 +25,7 @@ export default class Map extends React.Component {
           zoom={this.props.zoom}
           options={defaultOptions}
         >
-        <MyMarker lat={37.758275} lng={-122.400692} />
+        <MyMarker lat={37.758275} lng={-122.400692} {...props} />
         </GoogleMap>
       </div>
     );

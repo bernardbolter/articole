@@ -18,7 +18,7 @@ export default class Header extends React.Component {
           </div>
           <div className="header-images">
             <div className="header-gradient"></div>
-            <img src="../../assets/header.jpg" alt="Nicole and Art in Big Sur" />
+            <img src="http://articole.party/assets/header.jpg" alt="Nicole and Art in Big Sur" />
           </div>
         </div>
       </div>

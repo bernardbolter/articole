@@ -1,5 +1,8 @@
 import React, { Component} from 'react';
 import { observer } from 'mobx-react';
+import axios from 'axios';
+
+
 import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Option from 'muicss/lib/react/option';
@@ -26,6 +29,9 @@ export default class RSVP extends React.Component {
           </Select>
 
           <Button type='submit' className='mui-btn mui-btn--raised'>Submit</Button>
+          {(this.props.store.formSubmitting) ? <img src='../../assets/spinner.gif' /> : null }
+          {(this.props.store.success) ? <p className="form-success">Success</p> : null }
+          {(this.props.store.error) ? <p className="form-error">There was an error, please try again later</p> : null }
         </Form>
       </div>
     );
@@ -53,10 +59,33 @@ export default class RSVP extends React.Component {
 
   _submitForm = (e) => {
     e.preventDefault();
-    console.log(this.props.store.first_name);
-    console.log(this.props.store.last_name);
-    console.log(this.props.store.email);
-    console.log(this.props.store.attending);
-    console.log(this.props.store.number_attending);
+    this.props.store.formSubmitting = true;
+    axios.post('https://va4a3a3449.execute-api.us-east-2.amazonaws.com/dev/rsvp', {
+      firstName: this.props.store.first_name,
+      lastName: this.props.store.last_name,
+      email: this.props.store.email,
+      attending: this.props.store.attending,
+      numberAttending:this.props.store.number_attending
+    })
+    .then(response => {
+      this.props.store.formSubmitting = false;
+      this.props.store.first_name = '';
+      this.props.store.last_name = '';
+      this.props.store.email = ''
+      this.props.store.attending = 'yes';
+      this.props.store.number_attending = '2';
+      this.props.store.success = true;
+      console.log(response);
+    })
+    .catch(error => {
+      this.props.store.formSubmitting = false;
+      this.props.store.first_name = '';
+      this.props.store.last_name = '';
+      this.props.store.email = ''
+      this.props.store.attending = 'yes';
+      this.props.store.number_attending = '2';
+      this.props.store.success = true;
+      console.log(error);
+    })
   }
 }

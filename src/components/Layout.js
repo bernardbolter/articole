@@ -27,7 +27,7 @@ export default class Layout extends React.Component {
           <RSVP store = { storeData } />
           <Info />
         </div>
-        <Footer />
+        <Footer store = { storeData } />
       </div>
     );
   }

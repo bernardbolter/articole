@@ -9,7 +9,6 @@ module.exports = {
     path: path.resolve(__dirname, 'outbound'),
     filename: 'mashup.js'
   },
-  devtool: 'source-map',
   module: {
     loaders: [
       {
