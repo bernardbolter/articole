@@ -10,11 +10,15 @@
   flex-wrap: wrap
 
   a
-    width: 25%
+    width: 50%
     cursor: pointer
     height: 0
-    padding-bottom: 18%
+    padding-bottom: 37%
     overflow: hidden
+
+    @media (min-width: $desktop-break)
+      width: 25%
+      padding-bottom: 18%
 
     img
       width: 100%

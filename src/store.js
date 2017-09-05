@@ -15,6 +15,7 @@ class Store {
   @observable email = '';
   @observable attending = 'yes';
   @observable number_attending = '2';
+  @observable restrictions = '';
 
   @action openLightbox = (e) => {
       switch(e.target.id) {

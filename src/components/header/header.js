@@ -12,7 +12,8 @@ export default class Header extends React.Component {
             <h1>Nicole <span>and</span> Art</h1>
             <h2>celebrate their wedding</h2>
             <h3>Saturday &#183; December 2 &#183; 2017</h3>
-            <p>We enthusiastically invite you to join us in celebrating our marriage.</p>
+            <p>We are getting married on December 1<sup>st</sup> in a private ceremony with immediate family.</p>
+            <p>We enthusiastically invite you to join us in celebrating our marriage the following evening.</p>
             <p>Each of you are an important part of our world and we sincerely hope you can make it.</p>
             <p>Plus, who doesn’t love a good party?</p>
           </div>

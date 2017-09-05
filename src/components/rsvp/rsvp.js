@@ -15,6 +15,7 @@ export default class RSVP extends React.Component {
     return (
       <div id='rsvp' className='rsvp'>
         <h1>RSVP</h1>
+        <p>Please RSVP by October 1<sup>st</sup></p>
         <Form className='rsvp-form' onSubmit={this._submitForm}>
           <Input label='first name' floatingLabel={true} required={true} value={this.props.store.first_name} onChange={this._handleFirstName} />
           <Input label='last name' floatingLabel={true} required={true} value={this.props.store.last_name} onChange={this._handleLastName} />
@@ -27,6 +28,7 @@ export default class RSVP extends React.Component {
             <Option value="2" label="2" />
             <Option value="1" label="1" />
           </Select>
+          <Input label='any dietary restrictions?' type="restrictions" floatingLabel={true} required={true} value={this.props.store.restrictions} onChange={this._handleRestrictions} />
 
           <Button type='submit' className='mui-btn mui-btn--raised'>Submit</Button>
           {(this.props.store.formSubmitting) ? <img src='../../assets/spinner.gif' /> : null }
@@ -57,6 +59,10 @@ export default class RSVP extends React.Component {
     this.props.store.number_attending = e.target.value;
   }
 
+  _handleRestrictions = (e) => {
+    this.props.store.restrictions = e.target.value;
+  }
+
   _submitForm = (e) => {
     e.preventDefault();
     this.props.store.formSubmitting = true;
@@ -65,7 +71,8 @@ export default class RSVP extends React.Component {
       lastName: this.props.store.last_name,
       email: this.props.store.email,
       attending: this.props.store.attending,
-      numberAttending:this.props.store.number_attending
+      numberAttending: this.props.store.number_attending,
+      restrictions: this.props.store.restrictions
     })
     .then(response => {
       this.props.store.formSubmitting = false;
@@ -74,6 +81,7 @@ export default class RSVP extends React.Component {
       this.props.store.email = ''
       this.props.store.attending = 'yes';
       this.props.store.number_attending = '2';
+      this.props.store.restrictions = '';
       this.props.store.success = true;
       console.log(response);
     })
@@ -84,6 +92,7 @@ export default class RSVP extends React.Component {
       this.props.store.email = ''
       this.props.store.attending = 'yes';
       this.props.store.number_attending = '2';
+      this.props.store.restrictions = '';
       this.props.store.success = true;
       console.log(error);
     })

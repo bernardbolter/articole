@@ -606,13 +606,16 @@ body {
   .details p {
     color: #666;
     font-family: sans-serif;
-    width: 80%;
+    width: 70%;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 200;
     padding: 15px 0;
     margin: 0 10% 5px;
     text-align: center; }
+
+.p_links {
+  font-size: 16px !important; }
 
 .story {
   width: 100%;
@@ -891,6 +894,9 @@ body {
     padding: 50px 0 15px;
     margin: 0 0 5px;
     text-align: center; }
+  .rsvp p {
+    color: #999;
+    font-size: 16px; }
 
 .rsvp-form {
   width: 80%; }
@@ -935,6 +941,9 @@ body {
 .mui-select__menu > div {
   color: #C1AC66 !important; }
 
+.mui-textfield > input:invalid:not(:focus):required.mui--is-empty.mui--is-touched {
+  border-color: #999 !important; }
+
 .info {
   width: 80%;
   margin: 20px 10%;
@@ -972,11 +981,15 @@ body {
   flex-direction: row;
   flex-wrap: wrap; }
   .footer-thumbs a {
-    width: 25%;
+    width: 50%;
     cursor: pointer;
     height: 0;
-    padding-bottom: 18%;
+    padding-bottom: 37%;
     overflow: hidden; }
+    @media (min-width: 1000px) {
+      .footer-thumbs a {
+        width: 25%;
+        padding-bottom: 18%; } }
     .footer-thumbs a img {
       width: 100%;
       opacity: .7; }
